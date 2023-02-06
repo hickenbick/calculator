@@ -1,3 +1,21 @@
+const btns = document.querySelectorAll(".btn");
+const visor = document.querySelector(".visor")
+let visorContent = "";
+
+// listen to all buttons clicked
+btns.forEach(function(btn){
+  btn.addEventListener("click", function() {
+    console.log(btn.textContent)
+    updateVisor(btn.textContent)
+  })
+})
+
+// update visor on every button clicked
+function updateVisor(input) {
+  visorContent += input
+  visor.textContent = visorContent;
+}
+
 // operate numbers
 function add(n0, n1) {
   return (+n0 + +n1);
