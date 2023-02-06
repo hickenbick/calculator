@@ -41,11 +41,11 @@ function operate(op, n0, n1) {
 }
 
 // tests
-let plus = operate("+", 2.5555555, 2);
-let minus = operate("-", 2.545, 2);
-let multi = operate("*", 5324, 2.12);
-let div = operate("/", 10.2234, 2);
-console.log(plus)
-console.log(minus)
-console.log(multi)
-console.log(div)
+// let plus = operate("+", 2.5555555, 2);
+// let minus = operate("-", 2.545, 2);
+// let multi = operate("*", 5324, 2.12);
+// let div = operate("/", 10.2234, 2);
+// console.log(plus)
+// console.log(minus)
+// console.log(multi)
+// console.log(div)
