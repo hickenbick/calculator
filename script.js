@@ -7,6 +7,7 @@ const operators = document.querySelectorAll(".operator");
 const del = document.querySelector(".del");
 const ac = document.querySelector(".ac");
 const equal = document.querySelector(".equal");
+const dot = document.querySelector(".dot");
 let prevNum = "";
 let currNum = "";
 let operator = "";
@@ -14,9 +15,19 @@ let operator = "";
 
 // function when number buttons clicked
 numbers.forEach((e) => e.addEventListener("click", function(e){
-  currNum += e.target.textContent;
-  updateVisor();
+    currNum += e.target.textContent;
+    updateVisor();
 }));
+
+// function when dot button is clicked (works only once)
+dot.addEventListener("click", function(){
+  if (currNum.includes(".")) {
+    return
+  } else {
+    currNum += ".";
+    updateVisor();
+  }
+});
 
 
 // function when operator buttons clicked
@@ -86,13 +97,17 @@ function operate(op, prevNum, currNum) {
     return round((Number(prevNum) + Number(currNum)));
   }
   if (op === "-") {
-    return round(prevNum - currNum);
+    return round(Number(prevNum) - Number(currNum));
   }
   if (op === "*") {
-    return round(prevNum * currNum);
+    return round(Number(prevNum) * Number(currNum));
   }
   if (op === "/") {
-    return round(prevNum / currNum);
+    if(prevNum == 0 || currNum == 0) {
+      return "ERR"
+    } else {
+      return round(Number(prevNum) / Number(currNum));
+    }
   }
   else {
     return "ERR"
