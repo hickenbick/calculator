@@ -32,7 +32,7 @@ dot.addEventListener("click", function(){
 
 // function when operator buttons clicked
 operators.forEach((e) => e.addEventListener("click", function(e) {
-  if(operator === "") {
+   if(operator === "") {
     operator = e.target.textContent;
     prevNum = currNum;
     prevNumVisor.textContent = prevNum;
@@ -64,9 +64,12 @@ del.addEventListener("click", function() {
 
 // function when equal button clicked
 equal.addEventListener("click", function() {
-  currNum = operate(operator, prevNum, currNum);
-  prevNum = "";
-  updateVisor();
+    currNum = operate(operator, prevNum, currNum);
+    prevNum = "";
+    updateVisor();
+
+    prevNum = currNum;
+    currNum = "";
 })
 
 
@@ -108,8 +111,7 @@ function operate(op, prevNum, currNum) {
     } else {
       return round(Number(prevNum) / Number(currNum));
     }
-  }
-  else {
-    return "ERR"
+  } else {
+      return "ERR"
   }
 }

@@ -1,10 +1,14 @@
 :root {
   --white: #ffe;
   --light: #ccc;
+  --light-hover: #999;
   --grey: #555;
   --dark: #333;
   --black: #111;
-  --yellow: #fec63e;
+  --orange-btn: #FF8F1F;
+  --orange-btn-hover: #db730b;
+  --blue-btn: #1E90FF;
+  --blue-btn-hover: #0573e0;
 }
 
 * {
@@ -75,4 +79,30 @@ body {
   border-radius: 4px;
   text-align: center;
   cursor: pointer;
+}
+
+.operator,
+.ac,
+.del {
+  background: var(--blue-btn);
+}
+
+.operator:hover,
+.ac:hover,
+.del:hover {
+  background: var(--blue-btn-hover);
+}
+
+
+.equal {
+  background-color: var(--orange-btn);
+}
+
+.equal:hover {
+  background-color: var(--orange-btn-hover);
+}
+
+.number:hover,
+.dot:hover {
+  background-color: var(--light-hover);
 }
