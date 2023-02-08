@@ -36,10 +36,22 @@ body {
 
 .visor {
   background-color: var(--dark);
-  padding: 20px;
+  padding: 30px 20px;
   text-align: right;
   border-radius: 4px;
   color: var(--light);
+  line-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.prevNum {
+  font-size: 14px;
+}
+
+.currNum {
+  font-size: 20px;
 }
 
 .btn-row {
