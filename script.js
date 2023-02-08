@@ -4,31 +4,72 @@ const prevNumVisor = document.querySelector(".prevNum");
 const currNumVisor = document.querySelector(".currNum");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
+const del = document.querySelector(".del");
+const ac = document.querySelector(".ac");
+const equal = document.querySelector(".equal");
 let prevNum = "";
 let currNum = "";
 let operator = "";
 
 
-// listen to numbers clicked
+// function when number buttons clicked
 numbers.forEach((e) => e.addEventListener("click", function(e){
-  updateVisor(e.target.textContent);
+  currNum += e.target.textContent;
+  updateVisor();
 }));
 
 
-// listen to operators clicked
+// function when operator buttons clicked
 operators.forEach((e) => e.addEventListener("click", function(e) {
-  operator = e.target.textContent;
-  prevNum = currNum;
-  prevNumVisor.textContent = prevNum;
-  currNumVisor.textContent = operator;
-  currNum = ""
+  if(operator === "") {
+    operator = e.target.textContent;
+    prevNum = currNum;
+    prevNumVisor.textContent = prevNum;
+    currNumVisor.textContent = operator;
+    currNum = ""
+  } else {
+    prevNum = operate(operator, prevNum, currNum);
+    currNum = e.target.textContent;
+    updateVisor()
+    currNum = "";
+    operator = e.target.textContent;
+  }
 }))
 
 
-// update visor on every button clicked
-function updateVisor(input) {
-  currNum += input
-  currNumVisor.textContent = currNum
+// function when AC button clicked
+ac.addEventListener("click", function() {
+  resetData();
+  updateVisor();
+})
+
+
+// function when del button clicked
+del.addEventListener("click", function() {
+  currNum = currNum.slice(0, -1);
+  updateVisor();
+})
+
+
+// function when equal button clicked
+equal.addEventListener("click", function() {
+  currNum = operate(operator, prevNum, currNum);
+  prevNum = "";
+  updateVisor();
+})
+
+
+// update visor when called
+function updateVisor() {
+  currNumVisor.textContent = currNum;
+  prevNumVisor.textContent = prevNum;
+}
+
+
+function resetData() {
+  prevNum = "";
+  currNum = ""; 
+  operator = "";
 }
 
 
