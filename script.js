@@ -58,6 +58,8 @@ function operate(op, n0, n1) {
   }
 }
 
+console.log("test")
+
 // tests
 // let plus = operate("+", 2.5555555, 2);
 // let minus = operate("-", 2.545, 2);
